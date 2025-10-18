@@ -61,7 +61,39 @@ inputs:
     description: A comma-separated list of export presets to export. If not specified, all presets will be exported.
     default: ''
     required: false
-    
+
+  # Build Size Optimization Options
+  compile_custom_templates:
+    description: If "true", compile custom export templates from source with size optimization flags instead of using pre-built templates. This significantly increases build time (5-15 minutes) but allows for maximum size reduction.
+    default: false
+    required: false
+  godot_source_download_url:
+    description: The URL to download Godot source code (git repository or tarball). Required when "compile_custom_templates" is true.
+    default: ''
+    required: false
+  custom_build_profile_path:
+    description: Path to a custom .py file containing SCons build configuration (optimize, lto, disable_3d, modules, etc.). Relative to the repository root.
+    default: ''
+    required: false
+  custom_engine_config_path:
+    description: Path to a custom .gdbuild file for engine compilation configuration (enables/disables specific nodes and resources). Relative to the repository root.
+    default: ''
+    required: false
+
+  # Post-Processing Optimization Options
+  apply_wasm_opt:
+    description: If "true", run wasm-opt on Web exports to optimize WebAssembly files. Requires Binaryen to be installed or will download it automatically.
+    default: false
+    required: false
+  wasm_opt_level:
+    description: Optimization level for wasm-opt. Options are -O, -O1, -O2, -O3, -O4, -Os, -Oz. Default is -Oz (optimize for size).
+    default: '-Oz'
+    required: false
+  apply_brotli:
+    description: If "true", compress Web exports using Brotli compression (.br files). Only useful if your hosting platform supports Brotli decompression.
+    default: false
+    required: false
+
 
 outputs:
   build_directory:

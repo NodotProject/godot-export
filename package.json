@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/firebelley/godot-export.git"
+    "url": "git+https://github.com/NodotProject/godot-export.git"
   },
   "author": "Firebelley",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/firebelley/godot-export/issues"
+    "url": "https://github.com/NodotProject/godot-export/issues"
   },
-  "homepage": "https://github.com/firebelley/godot-export#readme",
+  "homepage": "https://github.com/NodotProject/godot-export#readme",
   "dependencies": {
     "@actions/cache": "^4.0.5",
     "@actions/core": "^1.11.1",

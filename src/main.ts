@@ -8,6 +8,7 @@ import {
   USE_PRESET_EXPORT_PATH,
 } from './constants';
 import { zipBuildResults, moveBuildsToExportDirectory } from './file';
+import { applyPostProcessingOptimizations } from './optimization';
 
 async function main(): Promise<number> {
   const buildResults = await exportBuilds();
@@ -15,6 +16,9 @@ async function main(): Promise<number> {
     core.setFailed('No valid export presets found, exiting.');
     return 1;
   }
+
+  // Apply post-processing optimizations (wasm-opt, Brotli)
+  await applyPostProcessingOptimizations(buildResults);
 
   if (ARCHIVE_OUTPUT) {
     await zipBuildResults(buildResults);

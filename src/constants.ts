@@ -17,6 +17,17 @@ const ARCHIVE_ROOT_FOLDER = core.getBooleanInput('archive_root_folder');
 const USE_GODOT_3 = core.getBooleanInput('use_godot_3');
 const EXPORT_PACK_ONLY = core.getBooleanInput('export_as_pack');
 
+// Build Size Optimization Options
+const COMPILE_CUSTOM_TEMPLATES = core.getBooleanInput('compile_custom_templates');
+const GODOT_SOURCE_DOWNLOAD_URL = core.getInput('godot_source_download_url');
+const CUSTOM_BUILD_PROFILE_PATH = core.getInput('custom_build_profile_path');
+const CUSTOM_ENGINE_CONFIG_PATH = core.getInput('custom_engine_config_path');
+
+// Post-Processing Optimization Options
+const APPLY_WASM_OPT = core.getBooleanInput('apply_wasm_opt');
+const WASM_OPT_LEVEL = core.getInput('wasm_opt_level') || '-Oz';
+const APPLY_BROTLI = core.getBooleanInput('apply_brotli');
+
 // Parse export targets
 const exportPresetsStr = core.getInput('presets_to_export').trim();
 let exportPresets: string[] | null = null;
@@ -51,9 +62,14 @@ const GODOT_PROJECT_PATH = path.resolve(path.join(RELATIVE_PROJECT_PATH));
 const GODOT_PROJECT_FILE_PATH = path.join(GODOT_PROJECT_PATH, 'project.godot');
 
 export {
+  APPLY_BROTLI,
+  APPLY_WASM_OPT,
   ARCHIVE_OUTPUT,
   ARCHIVE_ROOT_FOLDER,
   CACHE_ACTIVE,
+  COMPILE_CUSTOM_TEMPLATES,
+  CUSTOM_BUILD_PROFILE_PATH,
+  CUSTOM_ENGINE_CONFIG_PATH,
   EXPORT_DEBUG,
   EXPORT_PACK_ONLY,
   PRESETS_TO_EXPORT,
@@ -65,6 +81,7 @@ export {
   GODOT_EXPORT_TEMPLATES_PATH,
   GODOT_PROJECT_FILE_PATH,
   GODOT_PROJECT_PATH,
+  GODOT_SOURCE_DOWNLOAD_URL,
   GODOT_TEMPLATES_DOWNLOAD_URL,
   GODOT_VERBOSE,
   GODOT_WORKING_PATH,
@@ -72,5 +89,6 @@ export {
   RELATIVE_PROJECT_PATH,
   USE_GODOT_3,
   USE_PRESET_EXPORT_PATH,
+  WASM_OPT_LEVEL,
   WINE_PATH,
 };

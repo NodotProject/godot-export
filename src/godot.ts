@@ -25,6 +25,7 @@ import {
   CACHE_ACTIVE,
   GODOT_PROJECT_PATH,
 } from './constants';
+import { compileCustomTemplatesIfNeeded } from './template-compiler';
 
 const GODOT_EXECUTABLE = 'godot_executable';
 const GODOT_ZIP = 'godot.zip';
@@ -42,6 +43,9 @@ async function exportBuilds(): Promise<BuildResult[]> {
     );
     return [];
   }
+
+  // Compile custom templates if requested (before downloading)
+  await compileCustomTemplatesIfNeeded();
 
   core.startGroup('🕹️ Downloading Godot');
   await downloadGodot();
