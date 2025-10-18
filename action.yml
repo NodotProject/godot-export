@@ -1,6 +1,6 @@
-name: 'Godot Export'
+name: 'Godot Export Plus'
 description: 'Automatically exports your Godot games.'
-author: 'Firebelley'
+author: 'NodotProject'
 branding:
   icon: 'box'
   color: 'white'

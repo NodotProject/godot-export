@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/NodotProject/godot-export.git"
   },
-  "author": "Firebelley",
+  "author": "NodotProject",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/NodotProject/godot-export/issues"
